@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col">Nombre</th>
+	      <th scope="col">Fecha</th>
+	      <th scope="col">Origen</th>
+	      <th scope="col">Destino</th>
+	      <th scope="col">Tarifa 20</th>
+	      <th scope="col">Tarifa 40</th>
+	      <th scope="col">Tarifa 40 HC</th>
+	      <th scope="col">Moneda</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	    {% for rate in object_list %}
+	      <th scope="row">{{rate.fk_contract.name}}</th>
+	      <td>{{rate.fk_contract.date}}</td>
+	      <td>{{rate.origin}}</td>
+	      <td>{{rate.destination}}</td>
+	      <td>{{rate.twenty}}</td>
+	      <td>{{rate.forty}}</td>
+	      <td>{{rate.fortyhc}}</td>
+	      <td>{{rate.currency}}</td>
+	    </tr>
+		{% endfor %}
+	  </tbody>
+	</table>
+	{% include 'paginator.html' with paginator=page_obj %}
+{% endblock content %}

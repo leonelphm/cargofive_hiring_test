@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  <h3 class="text-center">Comparar los 2 ultimos archivos registrados</h3>
+  <form method="post">
+  	{% csrf_token %}
+  	<div class="col-md-12 text-center">
+  		<button class="btn btn-success">Comprar</button>
+  	</div>
+  </form>
+  {% if diff %}
+  	<table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col">Tipo de variacion</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	    {% for dif in diff %}
+	      <th scope="row">{{dif}}</th>
+	    </tr>
+		{% endfor %}
+	  </tbody>
+	</table>
+  {% endif %}
+</div>
+{% endblock content%}

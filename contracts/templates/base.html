@@ -1,0 +1,48 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}Capture data{% endblock title %}</title>
+	<link rel="icon" href="{% static 'bootstrap/favicon.ico' %}">
+	<link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'bootstrap/scss/dashboard.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/scss/gijgo.min.css' %}" rel="stylesheet" type="text/css" />
+	{% block extrastyle %}
+	{% endblock extrastyle %}
+</head>
+<body>
+	<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    	<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{% url 'contracts:contract_create' %}">Task Capture</a>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          
+        </li>
+      </ul>
+    </nav>
+
+	<div class="container-fluid">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          {% include "side.menu.html" %}
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			{% block messages %}
+				{% include "messages.html" %}
+			{% endblock messages %}
+    		{% block content %}{% endblock content %}
+    	</main>
+  	</div>
+</body>
+<script src="{% static 'js-vue/vue@2.js' %}"></script>
+<!-- Icons -->
+<script src="{% static 'js/feather.min.js' %}"></script>
+{% block extrajs %}
+{% endblock extrajs %}
+<script type="text/javascript">
+	function cerrar(element){
+		element.parentNode.style.display = "none";
+	}
+</script>
+</html>
