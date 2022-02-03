@@ -5,7 +5,7 @@ class Rates(models.Model):
     """
     Modelo de datos para las tarifas
     """
-    fk_contract = models.ForeignKey(Contract,on_delete=models.CASCADE, verbose_name='Empresas')
+    fk_contract = models.ForeignKey(Contract,on_delete=models.CASCADE, verbose_name='Nombre')
     origin = models.CharField(max_length=128, verbose_name='POL')
     destination = models.CharField(max_length=128, verbose_name='POD')
     currency = models.CharField(max_length=128, verbose_name='Curr')

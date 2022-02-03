@@ -11,3 +11,7 @@ class RatesListViews(ListView):
     model = Rates
     paginate_by = 15
     queryset = Rates.objects.select_related()
+
+
+def import_rates(listado_columna):
+    Rates.objects.bulk_create(listado_columna)
